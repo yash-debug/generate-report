@@ -1,0 +1,128 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top left, rgba(251, 207, 232, 0.4), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(254, 202, 202, 0.55), transparent 28%),
+    linear-gradient(180deg, #fffdfc 0%, #fff5f5 100%);
+}
+
+.lock-screen {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.lock-card {
+  width: min(100%, 440px);
+  padding: 36px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(245, 194, 194, 0.9);
+  box-shadow: 0 24px 60px rgba(127, 29, 29, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+.lock-eyebrow {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #b91c1c;
+}
+
+.lock-card h1 {
+  margin: 0;
+  font-size: 34px;
+  color: #1f2937;
+}
+
+.lock-copy {
+  margin: 12px 0 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.lock-form {
+  margin-top: 28px;
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.lock-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.lock-form input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid #d1d5db;
+  font-size: 24px;
+  letter-spacing: 0.32em;
+  text-align: center;
+  background: #fff;
+  color: #111827;
+}
+
+.lock-form input:focus {
+  outline: none;
+  border-color: #d32f2f;
+  box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.12);
+}
+
+.lock-form button {
+  margin-top: 8px;
+  border: none;
+  border-radius: 14px;
+  padding: 15px 18px;
+  background: linear-gradient(135deg, #d32f2f 0%, #991b1b 100%);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(153, 27, 27, 0.2);
+}
+
+.lock-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+.error-message {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  .lock-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .lock-card h1 {
+    font-size: 28px;
+  }
+}

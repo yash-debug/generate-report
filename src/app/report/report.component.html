@@ -1,0 +1,112 @@
+<div class="report-container">
+  <div class="report-header">
+    <h2>Generate Report</h2>
+    <p class="report-subtitle">Enter report details and add the required test result rows for the final document.</p>
+  </div>
+
+  <form class="report-form" (ngSubmit)="submitReport()">
+    <div class="form-group">
+      <label for="refNo">Ref. No</label>
+      <input
+        id="refNo"
+        type="text"
+        name="refNo"
+        [(ngModel)]="reportForm.refNo"
+        placeholder="Enter reference number">
+    </div>
+
+    <div class="form-group">
+      <label for="nameOfParty">Name of Party</label>
+      <input
+        id="nameOfParty"
+        type="text"
+        name="nameOfParty"
+        [(ngModel)]="reportForm.nameOfParty"
+        placeholder="Enter party name">
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input
+        id="date"
+        type="date"
+        name="date"
+        [(ngModel)]="reportForm.date">
+    </div>
+
+    <div class="form-group">
+      <label for="dateOfReceipt">Date of Receipt</label>
+      <input
+        id="dateOfReceipt"
+        type="date"
+        name="dateOfReceipt"
+        [(ngModel)]="reportForm.dateOfReceipt">
+    </div>
+
+    <div class="form-group">
+      <label for="natureOfSample">Nature of Sample</label>
+      <input
+        id="natureOfSample"
+        type="text"
+        name="natureOfSample"
+        [(ngModel)]="reportForm.natureOfSample"
+        placeholder="Enter nature of sample">
+    </div>
+
+    <div class="form-group form-group-full">
+      <div class="results-header">
+        <label>Results</label>
+        <button type="button" class="secondary-btn" (click)="addResultRow()">Add Row</button>
+      </div>
+
+      <div class="results-table-shell">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Serial Number</th>
+              <th>Test Name</th>
+              <th>Result</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of reportForm.results; track $index) {
+              <tr>
+                <td data-label="Serial Number">
+                  <input
+                    type="number"
+                    [name]="'serialNumber' + $index"
+                    [(ngModel)]="row.serialNumber"
+                    min="1">
+                </td>
+                <td data-label="Test Name">
+                  <input
+                    type="text"
+                    [name]="'testName' + $index"
+                    [(ngModel)]="row.testName"
+                    placeholder="Enter test name">
+                </td>
+                <td data-label="Result">
+                  <input
+                    type="text"
+                    [name]="'result' + $index"
+                    [(ngModel)]="row.result"
+                    placeholder="Enter result">
+                </td>
+                <td class="action-cell" data-label="Action">
+                  <button type="button" class="delete-row-btn" (click)="deleteResultRow($index)">Delete</button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="isGenerating">
+        {{ isGenerating ? 'Generating PDF...' : 'Generate Report' }}
+      </button>
+    </div>
+  </form>
+</div>
