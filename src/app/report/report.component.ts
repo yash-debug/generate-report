@@ -86,7 +86,7 @@ export class ReportComponent {
         y: 18.95 * 16,
         width: 210,
         height: 24,
-        value: ' :    M/s. ' + (this.reportForm.nameOfParty || '-'),
+        value: ' :    M/s. ' + (this.reportForm.nameOfParty.toUpperCase() || '-'),
         font,
         fontSize: 13,
         clearPaddingLeft: 1
@@ -97,7 +97,7 @@ export class ReportComponent {
         y: 20.18 * 16,
         width: 215,
         height: 24,
-        value: ' :    ' + (this.reportForm.natureOfSample || '-'),
+        value: ' :    ' + (this.reportForm.natureOfSample.toUpperCase() || '-'),
         font,
         fontSize: 13,
         clearPaddingLeft: 1
@@ -226,7 +226,7 @@ export class ReportComponent {
       color: rgb(0, 0, 0)
     });
 
-    page.drawText('Nature of Sample', {
+    page.drawText('Particulars', {
       x: tableX + col1 + 8,
       y: tableTopY - 15,
       size: 12,
@@ -234,7 +234,7 @@ export class ReportComponent {
       color: rgb(0, 0, 0)
     });
 
-    page.drawText('Result', {
+    page.drawText('Results in %', {
       x: tableX + col1 + col2 + 8,
       y: tableTopY - 15,
       size: 12,
